@@ -1,0 +1,145 @@
+/* POS 主容器 */
+.pos-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* 頁首 */
+.pos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #004d40;
+  color: white;
+  padding: 1em;
+}
+
+.pos-header .title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.header-buttons button {
+  margin-left: 0.5em;
+  padding: 0.5em 1em;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.header-buttons button:hover { background-color: #004d40; }
+
+/* 主區域 */
+.main-area {
+  display: flex;
+  flex-grow: 1;
+  align-items: stretch;
+  min-height: 0;
+  flex-wrap: wrap;
+}
+
+/* 商品區與統計區 */
+.product-area,
+.summary-area {
+  flex: 1 1 300px;
+  padding: 1em;
+  box-sizing: border-box;
+  overflow-y: visible;
+}
+
+/* 商品區 */
+.product-area { background-color: #f1f8e9; }
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.product-column {
+  flex: 1 1 200px;
+}
+
+.product-column h3 { margin-bottom: 0.5em; }
+
+.product-column button {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5em;
+  padding: 0.5em;
+  background-color: #aed581;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.product-column button:hover { background-color: #9ccc65; }
+
+.addon-row { margin-top: 1em; }
+.addon-row button {
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  padding: 0.5em 1em;
+  background-color: #ffe082;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.addon-row button:hover { background-color: #ffd54f; }
+
+/* 統計區 */
+.summary-area {
+  background-color: #fffde7;
+  border-left: 2px solid #ccc;
+}
+.summary-area ul { list-style: none; padding: 0; }
+.summary-area li {
+  margin-bottom: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.summary-area li button { margin-left: 0.5em; }
+
+/* 頁尾 */
+.pos-footer {
+  flex-shrink: 0;
+  background-color: #004d40;
+  color: white;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-top: 2px solid #ccc;
+}
+
+.footer-buttons button {
+  margin-left: 0.5em;
+  padding: 0.5em 1em;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.footer-buttons button:hover { background-color: #004d40; }
+
+/* 合計金額樣式（唯一 ID，放在檔案底部以提高優先權） */
+#pos-total {
+  color: #e53935 !important;
+  background: #fff9c4 !important;
+  font-weight: 800 !important;
+  font-size: 20px !important;
+  padding: 6px 10px !important;
+  position: relative !important;
+  z-index: 9999 !important;
+}
+
+/* 響應式調整（小螢幕讓 footer 排列換行） */
+@media (max-width: 640px) {
+  .pos-footer { flex-direction: column; gap: 8px; align-items: flex-start; }
+  .product-column { flex: 1 1 100%; }
+}
