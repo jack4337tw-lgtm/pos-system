@@ -1,5 +1,6 @@
 // src/api/orders.js
-const API_BASE = "http://localhost:3000/api/orders";
+const API_URL = import.meta.env.VITE_API_URL;
+const API_BASE = `${API_URL}/api/orders`;
 
 // 查詢所有訂單
 export async function getOrders() {
